@@ -1,0 +1,123 @@
+.header {
+  height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11, 16, 16, 0.94);
+  border-bottom: 1px solid #202c28;
+  backdrop-filter: blur(12px);
+}
+
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  height: 100%;
+}
+
+.links a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: #b3c0b8;
+  font-size: 10px;
+  letter-spacing: 0.11em;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 0;
+  right: 0;
+  bottom: 21px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.links a:hover,
+.links a.active {
+  color: var(--accent);
+}
+
+.links a:hover::after,
+.links a.active::after {
+  transform: scaleX(1);
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.menuBtn {
+  display: none;
+  margin-left: auto;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  place-items: center;
+}
+
+.mobile {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  right: 0;
+  display: grid;
+  gap: 18px;
+  padding: 20px 24px 25px;
+  background: #101816;
+  border-bottom: 1px solid var(--line);
+}
+
+.mobile a:not([class*="btn"]) {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 1000px) {
+  .links {
+    gap: 15px;
+  }
+
+  .wrap {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 760px) {
+  .header {
+    height: 66px;
+  }
+
+  .mobile {
+    top: 65px;
+  }
+
+  .links,
+  .actions {
+    display: none;
+  }
+
+  .menuBtn {
+    display: grid;
+  }
+}

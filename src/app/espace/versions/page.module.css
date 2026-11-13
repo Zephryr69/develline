@@ -1,0 +1,29 @@
+.timeline {
+  border-left: 1px solid #526653;
+  margin-left: 8px;
+  padding-left: 24px;
+}
+
+.item {
+  position: relative;
+  padding: 0 0 24px;
+}
+
+.item:last-child {
+  padding-bottom: 0;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  left: -29px;
+  top: 5px;
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.item > div {
+  padding-top: 0;
+}

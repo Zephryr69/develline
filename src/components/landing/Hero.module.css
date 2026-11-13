@@ -1,0 +1,393 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: radial-gradient(ellipse at 77% 47%, rgba(100, 142, 78, 0.12), transparent 39%), var(--bg);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(#ffffff06 1px, transparent 1px), linear-gradient(90deg, #ffffff06 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to right, transparent 35%, #000 100%);
+  pointer-events: none;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  padding-top: 88px;
+  padding-bottom: 84px;
+}
+
+.copy {
+  max-width: 610px;
+}
+
+.kicker {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  border: 1px solid #364732;
+  background: #18221a;
+  padding: 8px 11px;
+  border-radius: 5px;
+  color: #cce8a3;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.kicker i {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.copy h1 {
+  font-size: clamp(47px, 5.1vw, 73px);
+  line-height: 1.04;
+  letter-spacing: -0.065em;
+  margin: 25px 0 23px;
+  font-weight: 600;
+}
+
+.copy h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.desc {
+  max-width: 490px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #aab9b0;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.textLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: #d2ded4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  transition: color 0.2s;
+}
+
+.textLink:hover {
+  color: var(--accent);
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #81928a;
+  font-size: 12px;
+  margin-top: 24px;
+}
+
+.note svg {
+  width: 15px;
+  height: 15px;
+  color: var(--accent);
+}
+
+.previewWrap {
+  position: relative;
+  padding: 18px 0 15px 15px;
+}
+
+.previewWrap::before {
+  content: "";
+  position: absolute;
+  inset: 0 22px 0 0;
+  border: 1px solid #324239;
+  border-radius: 14px;
+  transform: rotate(-3deg);
+}
+
+.card {
+  position: relative;
+  border: 1px solid #3a4b40;
+  background: #151f1b;
+  border-radius: 12px;
+  box-shadow: 0 25px 80px #0007;
+  overflow: hidden;
+}
+
+.top {
+  padding: 15px 22px;
+  border-bottom: 1px solid #35443a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  color: #a1b6a4;
+}
+
+.verified {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.verified svg {
+  width: 15px;
+  height: 15px;
+}
+
+.body {
+  padding: 25px 27px 24px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.projectIcon {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #516843;
+  background: #2a3d29;
+  color: var(--accent);
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+}
+
+.projectIcon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  border: 1px solid #496044;
+  background: #263929;
+  color: #c4ec99;
+  border-radius: 4px;
+  padding: 6px 8px;
+  white-space: nowrap;
+}
+
+.status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.body h2 {
+  font-size: 26px;
+  letter-spacing: -0.04em;
+  margin: 17px 0 6px;
+}
+
+.body p {
+  color: #a8b8ad;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 380px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.tags span {
+  border: 1px solid #3c4b41;
+  color: #c4d1c6;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #334239;
+  border-bottom: 1px solid #334239;
+  margin-top: 23px;
+  padding: 17px 0;
+}
+
+.stats > div + div {
+  border-left: 1px solid #334239;
+  padding-left: 18px;
+}
+
+.statLabel {
+  font-size: 10px;
+  color: #8da196;
+  margin-bottom: 6px;
+}
+
+.statValue {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.contributors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 19px;
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #526d54;
+  color: #eff8e6;
+  font-size: 10px;
+  font-weight: 700;
+  border: 2px solid #151f1b;
+  margin-left: -6px;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatar:nth-child(2) {
+  background: #806e58;
+}
+
+.avatar:nth-child(3) {
+  background: #556d79;
+}
+
+.copyText {
+  font-size: 11px;
+  color: #adbbb0;
+  margin-left: 9px;
+}
+
+.cardLink {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+.caption {
+  position: absolute;
+  right: -11px;
+  bottom: -7px;
+  background: var(--accent);
+  color: #18230f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 10px 13px;
+  border-radius: 4px;
+  transform: rotate(-3deg);
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    gap: 35px;
+  }
+
+  .copy h1 {
+    font-size: 55px;
+  }
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+    padding-top: 50px;
+    padding-bottom: 45px;
+    gap: 36px;
+  }
+
+  .copy h1 {
+    font-size: clamp(43px, 11vw, 60px);
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .previewWrap {
+    padding-left: 8px;
+    margin-right: 8px;
+  }
+
+  .body {
+    padding: 22px;
+  }
+
+  .caption {
+    right: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .copy h1 {
+    font-size: 41px;
+  }
+
+  .stats > div + div {
+    padding-left: 10px;
+  }
+
+  .statValue {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,47 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #111916;
+  padding: 25px;
+}
+
+.highlight {
+  border-color: #6b8e50;
+  background: #1a281b;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  font-weight: 700;
+  color: #9bab9e;
+  text-transform: uppercase;
+}
+
+.highlight .label {
+  color: var(--accent);
+}
+
+.card h3 {
+  font-size: 19px;
+  margin: 20px 0 10px;
+}
+
+.card p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

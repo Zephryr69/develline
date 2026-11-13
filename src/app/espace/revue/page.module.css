@@ -1,0 +1,68 @@
+.status {
+  font-size: 10px;
+  font-weight: 700;
+  width: 70px;
+  flex-shrink: 0;
+}
+
+.added {
+  color: #9bdfab;
+}
+
+.modified {
+  color: #f0c58c;
+}
+
+.deleted {
+  color: #ffaba5;
+}
+
+.diff {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: #334139;
+  border: 1px solid #334139;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.col {
+  background: #101713;
+  min-width: 0;
+}
+
+.title {
+  font-size: 11px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #334139;
+  color: var(--muted);
+}
+
+.diff pre {
+  font: 11px/1.9 var(--font-mono);
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 12px;
+  color: #b9c8bd;
+}
+
+.minus {
+  background: #432725;
+  color: #ffc0ba;
+  display: block;
+}
+
+.plus {
+  background: #24412e;
+  color: #b9f1c4;
+  display: block;
+}
+
+@media (max-width: 760px) {
+  .diff {
+    grid-template-columns: 1fr;
+  }
+}

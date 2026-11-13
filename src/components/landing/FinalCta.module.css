@@ -1,0 +1,25 @@
+.cta {
+  padding: 85px 0;
+  text-align: center;
+  background: radial-gradient(ellipse at center, #283b25 0%, #111a15 58%, #0b1010 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.cta h2 {
+  font-size: clamp(35px, 4vw, 53px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin: 18px 0;
+}
+
+.cta p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 27px;
+}
+
+@media (max-width: 760px) {
+  .cta {
+    padding: 65px 0;
+  }
+}

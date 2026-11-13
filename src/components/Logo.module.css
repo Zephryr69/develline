@@ -1,0 +1,38 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+}
+
+.mark {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #14200f;
+  border-radius: 5px;
+}
+
+.mark svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.5;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.sm {
+  font-size: 18px;
+}
+
+.sm .mark {
+  width: 26px;
+  height: 26px;
+}
