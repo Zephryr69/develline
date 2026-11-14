@@ -38,6 +38,9 @@ Voir `.env.example`.
 2. Importez le dépôt sur Vercel, puis ajoutez `DATABASE_URL`, `NEXT_PUBLIC_SITE_URL` (l'URL Vercel ou votre domaine) et, si besoin, `MAX_ZIP_MB`.
 3. Déployez. Les tables sont créées au premier appel. Inscrivez-vous, créez un projet : c'est en ligne.
 
+## Si vous remplacez un ancien dépôt (prototype)
+Ne copiez pas les fichiers un par un : supprimez `src/`, `public/`, `package.json`, `package-lock.json`, `next.config.mjs` et `tsconfig.json` du dépôt, puis copiez le contenu du zip à la place (sans oublier `.gitignore` et `.env.example`). L'ancien prototype (`src/app/espace`, `src/components/workspace`, `src/context`) ne doit plus exister.
+
 ## Tests
 ```bash
 npm run test:flow      # parcours complet sur une base en mémoire : 63 vérifications

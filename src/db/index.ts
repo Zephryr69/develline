@@ -43,6 +43,14 @@ async function createDriver(): Promise<Driver> {
     };
   }
 
+  // Sur Vercel (ou tout hébergeur serverless), le disque est en lecture seule et éphémère :
+  // sans base PostgreSQL, les données seraient perdues. On échoue avec un message clair.
+  if (process.env.VERCEL && !process.env.PGLITE_DIR) {
+    throw new Error(
+      "DATABASE_URL est manquante. Créez une base PostgreSQL (Neon, Supabase…) et ajoutez son URL dans les variables d’environnement du projet Vercel."
+    );
+  }
+
   // Développement local sans configuration : PostgreSQL embarqué (PGlite).
   const { PGlite } = await import("@electric-sql/pglite");
   const dir = process.env.PGLITE_DIR ?? path.join(process.cwd(), ".data", "pglite");
