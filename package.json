@@ -1,26 +1,37 @@
 {
   "name": "develline",
   "version": "1.0.0",
-  "description": "DEVEL line — plateforme de shipping collaboratif contrôlé pour les développeurs africains",
+  "description": "DEVEL line \u2014 plateforme de shipping collaboratif contr\u00f4l\u00e9 pour les d\u00e9veloppeurs africains",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test:flow": "tsx scripts/test-flow.ts"
   },
   "dependencies": {
+    "@electric-sql/pglite": "^0.5.16",
     "@fontsource-variable/outfit": "^5.3.0",
     "@fontsource/space-mono": "^5.3.0",
+    "bcryptjs": "^3.0.3",
+    "diff": "^9.0.0",
     "framer-motion": "^14.13.0",
+    "jszip": "^3.10.2",
     "next": "^16.4.6",
+    "pg": "^8.23.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-icons": "^5.7.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   },
-  "private": true
+  "private": true,
+  "engines": {
+    "node": ">=20.9"
+  }
 }

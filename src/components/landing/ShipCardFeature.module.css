@@ -1,5 +1,5 @@
 .section {
-  background: #111a16;
+  background: var(--surface);
 }
 
 .grid {
@@ -29,32 +29,32 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  color: #d4dfd5;
+  color: var(--text);
 }
 
 .list svg {
-  color: var(--accent);
+  color: var(--accent-text);
   width: 16px;
   height: 16px;
 }
 
 .panel {
   padding: 27px;
-  border: 1px solid #35483a;
-  background: #18251d;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
   border-radius: 12px;
 }
 
 .card {
-  border: 1px solid #3a4b40;
-  background: #151f1b;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
   border-radius: 12px;
   overflow: hidden;
 }
 
 .top {
   padding: 15px 22px;
-  border-bottom: 1px solid #35443a;
+  border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,13 +64,13 @@
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.13em;
-  color: #a1b6a4;
+  color: var(--text-soft);
 }
 
 .verified {
   font-size: 10px;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--accent-text);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -88,9 +88,9 @@
 .projectIcon {
   width: 50px;
   height: 50px;
-  border: 1px solid #516843;
-  background: #2a3d29;
-  color: var(--accent);
+  border: 1px solid var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent-text);
   border-radius: 9px;
   display: grid;
   place-items: center;
@@ -108,7 +108,7 @@
 }
 
 .body p {
-  color: #a8b8ad;
+  color: var(--text-soft);
   font-size: 13px;
   line-height: 1.6;
   margin: 0;
@@ -118,20 +118,20 @@
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid #334239;
-  border-bottom: 1px solid #334239;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   margin-top: 23px;
   padding: 17px 0;
 }
 
 .stats > div + div {
-  border-left: 1px solid #334239;
+  border-left: 1px solid var(--line);
   padding-left: 18px;
 }
 
 .statLabel {
   font-size: 10px;
-  color: #8da196;
+  color: var(--muted);
   margin-bottom: 6px;
 }
 
@@ -149,13 +149,13 @@
 
 .rowText {
   font-size: 11px;
-  color: #adbbb0;
+  color: var(--text-soft);
 }
 
 .link {
   font-size: 11px;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--accent-text);
   display: flex;
   gap: 5px;
   align-items: center;

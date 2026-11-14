@@ -18,7 +18,7 @@ export default function Problem() {
           <p>
             Vous avez appris, expérimenté, recommencé. Mais sans projet livré, difficile de montrer ce que vous savez vraiment faire. DEVEL line vous aide à aller jusqu’au bout, ensemble.
           </p>
-          <Button variant="outline" href={PATHS.create}>
+          <Button variant="outline" href={PATHS.newProject}>
             Créer un projet <LuArrowUpRight />
           </Button>
         </Reveal>

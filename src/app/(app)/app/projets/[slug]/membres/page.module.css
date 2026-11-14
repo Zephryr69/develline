@@ -1,0 +1,21 @@
+.tools {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.role {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.role select {
+  border: 1px solid var(--line-strong);
+  background: var(--input-bg);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 7px 9px;
+  font-size: 12px;
+}

@@ -23,9 +23,9 @@ export default function Footer() {
           </div>
           <div className={styles.col}>
             <h3>Produit</h3>
-            <a href="#comment">Comment ça marche</a>
-            <a href="#ship-card">Ship Card</a>
-            <Link href={PATHS.public}>Projets publics</Link>
+            <Link href="/#comment">Comment ça marche</Link>
+            <Link href="/#ship-card">Ship Card</Link>
+            <Link href={PATHS.publicProjects}>Projets publics</Link>
           </div>
           <div className={styles.col}>
             <h3>Ressources</h3>
@@ -35,13 +35,13 @@ export default function Footer() {
           </div>
           <div className={styles.col}>
             <h3>Contact / Légal</h3>
-            <a href="mailto:bonjour@develline.example">Contact</a>
+            {process.env.NEXT_PUBLIC_CONTACT_EMAIL ? <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}>Contact</a> : <Link href={PATHS.legal}>Contact</Link>}
             <Link href={PATHS.legal}>Mentions légales</Link>
             <Link href={PATHS.privacy}>Confidentialité</Link>
           </div>
         </div>
         <div className={styles.bottom}>
-          <span>© 2026 DEVEL line. Tous droits réservés.</span>
+          <span>© {new Date().getFullYear()} DEVEL line. Tous droits réservés.</span>
           <span>Pour les devs, par les devs.</span>
         </div>
       </div>

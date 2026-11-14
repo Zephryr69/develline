@@ -11,7 +11,7 @@ export default function ShipCardFeature() {
         <Reveal className={styles.panel}>
           <div className={styles.card}>
             <div className={styles.top}>
-              <span className={styles.label}>SHIP CARD / MARCHÉ LOCAL</span>
+              <span className={styles.label}>EXEMPLE / MARCHÉ LOCAL</span>
               <span className={styles.verified}>
                 <LuBadgeCheck /> LIVRÉ
               </span>
@@ -42,8 +42,8 @@ export default function ShipCardFeature() {
               </div>
               <div className={styles.row}>
                 <span className={styles.rowText}>Prête pour votre CV et vos réseaux.</span>
-                <a href={PATHS.card} className={styles.link}>
-                  Explorer <LuArrowUpRight size={14} />
+                <a href={PATHS.publicProjects} className={styles.link}>
+                  Voir des exemples <LuArrowUpRight size={14} />
                 </a>
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function ShipCardFeature() {
               <LuCheck /> Un lien à partager sur votre CV ou vos réseaux
             </li>
           </ul>
-          <Button variant="primary" href={PATHS.create}>
+          <Button variant="primary" href={PATHS.newProject}>
             Créer un projet <LuArrowUpRight />
           </Button>
         </Reveal>

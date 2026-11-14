@@ -15,7 +15,7 @@ export default function FinalCta() {
           ne restera pas une idée.
         </h2>
         <p>Rassemblez votre équipe. Fixez une date. Livrez quelque chose dont vous êtes fier.</p>
-        <Button variant="primary" href={PATHS.create}>
+        <Button variant="primary" href={PATHS.newProject}>
           Créer un projet <LuArrowUpRight />
         </Button>
       </Reveal>

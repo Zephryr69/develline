@@ -43,7 +43,7 @@ export default function Steps() {
         </div>
 
         <div className={styles.cta}>
-          <Button variant="primary" href={PATHS.create}>
+          <Button variant="primary" href={PATHS.newProject}>
             Créer un projet <LuArrowUpRight />
           </Button>
         </div>

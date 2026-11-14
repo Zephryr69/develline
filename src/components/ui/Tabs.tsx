@@ -2,26 +2,23 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PATHS } from "@/lib/routes";
 import styles from "./Tabs.module.css";
 
-const TABS = [
-  { href: PATHS.project, label: "Aperçu" },
-  { href: PATHS.files, label: "Fichiers" },
-  { href: PATHS.contributions, label: "Contributions" },
-  { href: PATHS.versions, label: "Versions" },
-  { href: PATHS.members, label: "Membres" },
-];
+export type TabItem = { href: string; label: string; exact?: boolean; count?: number };
 
-export default function Tabs() {
+export default function Tabs({ items }: { items: TabItem[] }) {
   const pathname = usePathname();
   return (
     <nav className={styles.tabs} aria-label="Sections du projet">
-      {TABS.map((t) => (
-        <Link key={t.href} href={t.href} className={`${styles.tab} ${pathname === t.href ? styles.active : ""}`} aria-current={pathname === t.href ? "page" : undefined}>
-          {t.label}
-        </Link>
-      ))}
+      {items.map((t) => {
+        const active = t.exact ? pathname === t.href : pathname === t.href || pathname.startsWith(t.href + "/");
+        return (
+          <Link key={t.href} href={t.href} className={`${styles.tab} ${active ? styles.active : ""}`} aria-current={active ? "page" : undefined}>
+            {t.label}
+            {t.count ? <span className={styles.count}>{t.count}</span> : null}
+          </Link>
+        );
+      })}
     </nav>
   );
 }

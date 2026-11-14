@@ -1,0 +1,54 @@
+.card {
+  width: min(440px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 20px 70px var(--shadow-color);
+}
+
+.card h1 {
+  font-size: 28px;
+  letter-spacing: -0.045em;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.card > p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+
+.submit {
+  margin-top: 22px;
+}
+
+.alt {
+  margin: 22px 0 0 !important;
+  text-align: center;
+  font-size: 13px;
+}
+
+.alt a {
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+.alt a:hover {
+  text-decoration: underline;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 24px;
+  }
+}

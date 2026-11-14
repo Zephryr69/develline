@@ -1,0 +1,10 @@
+.shell {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px clamp(16px, 3vw, 36px) 90px;
+}

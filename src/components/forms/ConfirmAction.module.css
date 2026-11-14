@@ -1,0 +1,62 @@
+.inline {
+  display: inline-block;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: rgba(5, 10, 30, 0.68);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal {
+  width: min(470px, 100%);
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 20px 80px var(--shadow-color);
+}
+
+.modal h2 {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.modal p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-soft);
+  margin: 0;
+}
+
+.note {
+  display: grid;
+  gap: 7px;
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.note textarea {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  background: var(--input-bg);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 13px;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}

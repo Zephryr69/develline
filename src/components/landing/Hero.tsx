@@ -30,7 +30,7 @@ export default function Hero() {
             Passez du « j’apprends » au « j’ai construit ». Collaborez sur des projets concrets, gardez le contrôle et partagez la preuve de votre travail.
           </motion.p>
           <motion.div variants={item} className={styles.actions}>
-            <Button variant="primary" size="lg" href={PATHS.create}>
+            <Button variant="primary" size="lg" href={PATHS.newProject}>
               Créer un projet <LuArrowUpRight />
             </Button>
             <a href="#comment" className={styles.textLink}>
@@ -54,9 +54,9 @@ export default function Hero() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
             <div className={styles.top}>
-              <span className={styles.label}>LA PREUVE PAR LE PROJET</span>
+              <span className={styles.label}>EXEMPLE DE SHIP CARD</span>
               <span className={styles.verified}>
-                <LuBadgeCheck /> SHIP CARD
+                <LuBadgeCheck /> LIVRÉ
               </span>
             </div>
             <div className={styles.body}>
@@ -94,8 +94,8 @@ export default function Hero() {
                   <span className={styles.avatar}>FN</span>
                   <span className={styles.copyText}>3 contributeurs</span>
                 </div>
-                <a href={PATHS.card} className={styles.cardLink}>
-                  Voir la Ship Card <LuArrowUpRight size={14} />
+                <a href={PATHS.publicProjects} className={styles.cardLink}>
+                  Voir des projets livrés <LuArrowUpRight size={14} />
                 </a>
               </div>
             </div>

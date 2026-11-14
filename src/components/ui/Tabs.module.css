@@ -20,6 +20,16 @@
 }
 
 .active {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--accent-text);
+  color: var(--accent-text);
+}
+
+.count {
+  margin-left: 7px;
+  background: var(--warn-bg);
+  color: var(--warn-fg);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 10px;
 }

@@ -1,0 +1,80 @@
+.diff {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--input-bg);
+  font: 12px/1.65 var(--font-mono);
+}
+
+.summary {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 700;
+  background: var(--surface-2);
+}
+
+.plusText {
+  color: var(--ok-fg);
+}
+
+.minusText {
+  color: var(--err-fg);
+}
+
+.hunk + .hunk {
+  border-top: 1px dashed var(--line-strong);
+}
+
+.header {
+  padding: 5px 14px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 42px 42px 18px 1fr;
+  padding: 0 8px 0 0;
+}
+
+.no {
+  text-align: right;
+  padding-right: 8px;
+  color: var(--muted);
+  user-select: none;
+  font-size: 11px;
+}
+
+.sign {
+  user-select: none;
+  font-weight: 700;
+}
+
+.text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.add {
+  background: var(--ok-bg);
+  color: var(--ok-fg);
+}
+
+.del {
+  background: var(--err-bg);
+  color: var(--err-fg);
+}
+
+.empty {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .line {
+    grid-template-columns: 34px 34px 14px 1fr;
+  }
+}

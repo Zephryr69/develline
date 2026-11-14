@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { IconType } from "react-icons";
 import { LuCircleAlert, LuInfo, LuTriangleAlert } from "react-icons/lu";
 import styles from "./Primitives.module.css";
 
@@ -34,28 +33,19 @@ export function Panel({
   children,
   className = "",
   maxWidth,
-  as: Tag = "div",
-  onSubmit,
   id,
   spaced,
 }: {
   children: React.ReactNode;
   className?: string;
   maxWidth?: number;
-  as?: "div" | "form";
-  onSubmit?: React.FormEventHandler<HTMLFormElement>;
   id?: string;
   spaced?: boolean;
 }) {
   return (
-    <Tag
-      id={id}
-      onSubmit={onSubmit as never}
-      className={`${styles.panel} ${className}`}
-      style={{ maxWidth, marginTop: spaced ? 16 : undefined }}
-    >
+    <div id={id} className={`${styles.panel} ${className}`} style={{ maxWidth, marginTop: spaced ? 16 : undefined }}>
       {children}
-    </Tag>
+    </div>
   );
 }
 
@@ -83,12 +73,29 @@ export function Badge({ children, tone = "ok" }: { children: React.ReactNode; to
   return <span className={`${styles.badge} ${tone !== "ok" ? styles[tone] : ""}`}>{children}</span>;
 }
 
-export function Notice({ children, tone = "ok" }: { children: React.ReactNode; tone?: "ok" | "warn" | "error" }) {
+export function Notice({
+  children,
+  tone = "ok",
+  items,
+}: {
+  children: React.ReactNode;
+  tone?: "ok" | "warn" | "error";
+  items?: string[];
+}) {
   const Icon = tone === "error" ? LuCircleAlert : tone === "warn" ? LuTriangleAlert : LuInfo;
   return (
     <div className={`${styles.notice} ${tone !== "ok" ? styles[`notice_${tone}`] : ""}`} role={tone === "error" ? "alert" : "status"}>
       <Icon />
-      <span>{children}</span>
+      <div>
+        <span>{children}</span>
+        {items && items.length > 0 && (
+          <ul className={styles.noticeList}>
+            {items.map((i) => (
+              <li key={i}>{i}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
@@ -144,12 +151,8 @@ export function Avatar({ initials, size }: { initials: string; size?: "lg" }) {
   return <div className={`${styles.avatar} ${size === "lg" ? styles.avatarLg : ""}`}>{initials}</div>;
 }
 
-export function ProjectIcon({ icon: Icon }: { icon: IconType }) {
-  return (
-    <div className={styles.projectIcon}>
-      <Icon />
-    </div>
-  );
+export function ProjectIcon({ icon }: { icon: React.ReactNode }) {
+  return <div className={styles.projectIcon}>{icon}</div>;
 }
 
 export function Tags({ tags }: { tags: string[] }) {
@@ -182,20 +185,32 @@ export function ProgressLabel({ left, right }: { left: React.ReactNode; right: R
 }
 
 export function EmptyState({
-  icon: Icon,
+  icon,
   title,
   children,
 }: {
-  icon: IconType;
+  icon: React.ReactNode;
   title: string;
   children?: React.ReactNode;
 }) {
   return (
     <div className={styles.empty}>
-      <Icon />
+      {icon}
       <h2>{title}</h2>
       {children}
     </div>
+  );
+}
+
+export function TextLink({ href, children, external }: { href: string; children: React.ReactNode; external?: boolean }) {
+  return external ? (
+    <a className={styles.link} href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  ) : (
+    <a className={styles.link} href={href}>
+      {children}
+    </a>
   );
 }
 

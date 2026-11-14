@@ -1,5 +1,5 @@
 .problem {
-  background: #101715;
+  background: var(--bg-alt);
 }
 
 .grid {
@@ -23,15 +23,15 @@
 }
 
 .box {
-  background: #17201d;
-  border: 1px solid #2b3b33;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
   padding: 24px;
   min-height: 170px;
   border-radius: 9px;
 }
 
 .box svg {
-  color: var(--accent);
+  color: var(--accent-text);
   width: 22px;
   height: 22px;
 }

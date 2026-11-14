@@ -2,31 +2,28 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { LuArrowUpRight, LuMenu, LuX } from "react-icons/lu";
+import { LuArrowUpRight, LuLayoutDashboard, LuMenu, LuX } from "react-icons/lu";
 import Logo from "@/components/Logo";
+import ThemeToggle from "@/components/ThemeToggle";
 import Button from "@/components/ui/Button";
 import { PATHS } from "@/lib/routes";
 import styles from "./Navbar.module.css";
 
 const LINKS = [
-  { href: "#comment", label: "COMMENT ÇA MARCHE", id: "comment" },
-  { href: "#ship-card", label: "SHIP CARD", id: "ship-card" },
-  { href: "#difference", label: "POURQUOI DEVEL LINE", id: "difference" },
-  { href: PATHS.public, label: "PROJETS PUBLICS", id: "" },
+  { href: "/#comment", label: "COMMENT ÇA MARCHE", id: "comment" },
+  { href: "/#ship-card", label: "SHIP CARD", id: "ship-card" },
+  { href: "/#difference", label: "POURQUOI DEVEL LINE", id: "difference" },
+  { href: PATHS.publicProjects, label: "PROJETS PUBLICS", id: "" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ userName }: { userName: string | null }) {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("comment");
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     const ids = LINKS.map((l) => l.id).filter(Boolean);
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-40% 0px -50% 0px" }
     );
     ids.forEach((id) => {
@@ -42,22 +39,27 @@ export default function Navbar() {
         <Logo />
         <nav className={styles.links} aria-label="Navigation principale">
           {LINKS.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className={active === l.id && l.id ? styles.active : ""}
-            >
+            <a key={l.label} href={l.href} className={l.id && active === l.id ? styles.active : ""}>
               {l.label}
             </a>
           ))}
         </nav>
         <div className={styles.actions}>
-          <Button variant="outline" size="sm" href={PATHS.auth}>
-            Connexion
-          </Button>
-          <Button variant="primary" size="sm" href={PATHS.create}>
-            Créer un projet <LuArrowUpRight />
-          </Button>
+          <ThemeToggle />
+          {userName ? (
+            <Button variant="primary" size="sm" href={PATHS.dashboard}>
+              <LuLayoutDashboard /> Mon espace
+            </Button>
+          ) : (
+            <>
+              <Button variant="outline" size="sm" href={PATHS.login}>
+                Connexion
+              </Button>
+              <Button variant="primary" size="sm" href={PATHS.newProject}>
+                Créer un projet <LuArrowUpRight />
+              </Button>
+            </>
+          )}
         </div>
         <button
           className={styles.menuBtn}
@@ -84,12 +86,24 @@ export default function Navbar() {
                 {l.label}
               </a>
             ))}
-            <Button variant="outline" href={PATHS.auth}>
-              Connexion
-            </Button>
-            <Button variant="primary" href={PATHS.create}>
-              Créer un projet
-            </Button>
+            {userName ? (
+              <Button variant="primary" href={PATHS.dashboard}>
+                Mon espace
+              </Button>
+            ) : (
+              <>
+                <Button variant="outline" href={PATHS.login}>
+                  Connexion
+                </Button>
+                <Button variant="primary" href={PATHS.newProject}>
+                  Créer un projet
+                </Button>
+              </>
+            )}
+            <div className={styles.mobileTheme}>
+              <span>Thème</span>
+              <ThemeToggle />
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>

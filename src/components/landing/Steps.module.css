@@ -9,7 +9,7 @@
 .step {
   padding: 27px 25px 30px;
   min-height: 220px;
-  background: #111916;
+  background: var(--surface);
 }
 
 .step + .step {
@@ -24,7 +24,7 @@
 
 .num {
   font-family: var(--font-mono);
-  color: #6d8174;
+  color: var(--muted);
   font-size: 11px;
 }
 
@@ -33,10 +33,10 @@
   place-items: center;
   width: 40px;
   height: 40px;
-  border: 1px solid #3b5040;
-  color: var(--accent);
+  border: 1px solid var(--line-strong);
+  color: var(--accent-text);
   border-radius: 7px;
-  background: #1b2a1d;
+  background: var(--accent-soft);
 }
 
 .icon svg {

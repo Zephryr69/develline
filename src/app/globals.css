@@ -1,21 +1,94 @@
 /* ===== Variables ===== */
+/* ===== Thèmes =====
+   Charte : docs/Codes_Couleur_KT_Services.xlsx (même palette que le site de visa).
+   Marque : bleu #1f3a8f · bleu foncé #0d2660 · or #c8960c · rouge #cc0000.
+   Les teintes info / succès / vigilance / alerte du clair viennent du fichier ; celles du sombre en sont dérivées.
+   Le thème est posé sur <html data-theme="dark|light"> par un script exécuté avant le premier rendu. */
 :root {
-  --bg: #0b1010;
-  --surface: #121a19;
-  --surface2: #182220;
-  --surface3: #202d2a;
-  --line: #2b3935;
-  --muted: #94a49d;
-  --text: #f2f5ee;
-  --accent: #c9f36b;
-  --accent-dark: #a9d84c;
-  --green: #83d9ae;
-  --red: #ff9c96;
-  --orange: #efc17d;
-  --radius: 14px;
+  --bleu: #1f3a8f;
+  --bleu-fonce: #0d2660;
+  --or: #c8960c;
+  --rouge: #cc0000;
+  --blanc: #ffffff;
+  --radius: 12px;
   --max: 1280px;
   --font-sans: "Outfit Variable", Outfit, system-ui, sans-serif;
   --font-mono: "Space Mono", ui-monospace, monospace;
+}
+
+/* Sombre : fonds dérivés du bleu foncé, CTA et accents en or */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #080f24;
+  --bg-alt: #0b1530;
+  --surface: #0f1b3d;
+  --surface-2: #13224a;
+  --surface-3: #1c2f62;
+  --input-bg: #0a1330;
+  --line: #1f3166;
+  --line-strong: #364d92;
+  --accent-line: #6b5418;
+  --err-line: #7a2d2f;
+  --warn-line: #7a5a1a;
+  --text: #f3f6ff;
+  --text-soft: #c5d0ee;
+  --muted: #93a3cf;
+  --accent: #c8960c;
+  --accent-hover: #ddaa1d;
+  --accent-text: #e3b02a;
+  --on-accent: #0d2660;
+  --accent-soft: #2a2410;
+  --highlight: #e3b02a;
+  --gold: #c8960c;
+  --ok-bg: #14301c;
+  --ok-fg: #9fe0a8;
+  --warn-bg: #3a2c0c;
+  --warn-fg: #f0c36a;
+  --err-bg: #3a1517;
+  --err-fg: #ff9b9b;
+  --glow: #13265a;
+  --glow-soft: rgba(31, 58, 143, 0.32);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --nav-bg: rgba(8, 15, 36, 0.92);
+}
+
+/* Clair : fond blanc, CTA et accents en bleu, or en touche décorative */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-alt: #f3f6fc;
+  --surface: #ffffff;
+  --surface-2: #f3f6fc;
+  --surface-3: #e3eaf7;
+  --input-bg: #ffffff;
+  --line: #dde4f2;
+  --line-strong: #b5c2e0;
+  --accent-line: #a9bbe6;
+  --err-line: #e7a7a1;
+  --warn-line: #e8c98a;
+  --text: #1a1a1a;
+  --text-soft: #3a4256;
+  --muted: #5a6479;
+  --accent: #1f3a8f;
+  --accent-hover: #0d2660;
+  --accent-text: #1f3a8f;
+  --on-accent: #ffffff;
+  --accent-soft: #ebf0fa;
+  --highlight: #b07f00;
+  --gold: #c8960c;
+  --ok-bg: #e2efda;
+  --ok-fg: #1e5e1e;
+  --warn-bg: #fff3e0;
+  --warn-fg: #854f0b;
+  --err-bg: #fcebeb;
+  --err-fg: #a32d2d;
+  --glow: #dfe7f8;
+  --glow-soft: rgba(31, 58, 143, 0.1);
+  --grid-line: rgba(13, 38, 96, 0.06);
+  --shadow-color: rgba(13, 38, 96, 0.16);
+  --nav-bg: rgba(255, 255, 255, 0.92);
 }
 
 /* ===== Base ===== */
@@ -32,6 +105,7 @@ html {
 
 body {
   margin: 0;
+  transition: background-color 0.25s ease, color 0.25s ease;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
@@ -69,7 +143,7 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--accent-text);
   outline-offset: 3px;
 }
 
@@ -87,7 +161,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -98,7 +172,7 @@ svg {
   content: "";
   width: 7px;
   height: 7px;
-  background: var(--accent);
+  background: var(--highlight);
   border-radius: 50%;
 }
 

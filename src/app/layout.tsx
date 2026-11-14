@@ -4,23 +4,35 @@ import "@fontsource/space-mono/400.css";
 import "@fontsource/space-mono/700.css";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
+import ToastProvider from "@/components/ToastProvider";
+import { themeScript } from "@/components/ThemeToggle";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
-  title: "DEVEL line — Des projets terminés, des preuves partagées",
-  description:
-    "DEVEL line : shippez ensemble, gardez le contrôle et sortez avec des preuves.",
-  icons: { icon: "/favicon.svg" },
+  metadataBase: new URL(siteUrl),
+  title: { default: "DEVEL line — Livrez vos projets, ensemble", template: "%s · DEVEL line" },
+  description: "DEVEL line : shippez ensemble, gardez le contrôle et sortez avec des preuves. La plateforme de collaboration contrôlée pour les développeurs africains.",
+  openGraph: { title: "DEVEL line", description: "Shippez ensemble, gardez le contrôle, sortez avec des preuves.", type: "website", locale: "fr_FR" },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1010",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#080f24" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
-        <MotionProvider>{children}</MotionProvider>
+        <MotionProvider>
+          <ToastProvider>{children}</ToastProvider>
+        </MotionProvider>
       </body>
     </html>
   );

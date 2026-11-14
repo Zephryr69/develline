@@ -1,7 +1,7 @@
 .cta {
   padding: 85px 0;
   text-align: center;
-  background: radial-gradient(ellipse at center, #283b25 0%, #111a15 58%, #0b1010 100%);
+  background: radial-gradient(ellipse at center, var(--glow) 0%, var(--surface) 58%, var(--bg) 100%);
   border-bottom: 1px solid var(--line);
 }
 

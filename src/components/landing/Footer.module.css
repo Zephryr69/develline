@@ -1,6 +1,6 @@
 .footer {
   padding: 60px 0 0;
-  background: #0b1010;
+  background: var(--bg);
 }
 
 .grid {
@@ -30,13 +30,13 @@
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 5px;
-  color: #b7c7b9;
+  color: var(--text-soft);
   transition: color 0.2s, border-color 0.2s;
 }
 
 .socials a:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent-text);
 }
 
 .col h3 {
@@ -46,14 +46,14 @@
 
 .col a {
   display: block;
-  color: #8fa096;
+  color: var(--muted);
   font-size: 12px;
   margin: 0 0 14px;
   transition: color 0.2s, transform 0.2s;
 }
 
 .col a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
   transform: translateX(3px);
 }
 
@@ -63,7 +63,7 @@
   display: flex;
   justify-content: space-between;
   gap: 15px;
-  color: #778a7d;
+  color: var(--muted);
   font-size: 11px;
 }
 
