@@ -1,0 +1,49 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: clamp(28px, 3.4vw, 44px);
+  border-radius: var(--radius-lg);
+}
+
+.card h3 {
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  margin: 28px 0 8px;
+}
+
+.lead {
+  margin: 0 0 22px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  display: grid;
+  gap: 14px;
+}
+
+.card li {
+  display: flex;
+  gap: 12px;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.card li svg {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  color: var(--accent-text);
+}
+
+.card > :last-child {
+  margin-top: auto;
+}

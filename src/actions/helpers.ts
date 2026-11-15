@@ -1,5 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { AppError } from "@/server/errors";
+import { classifyDbError } from "@/server/db-errors";
 import { ArchiveError } from "@/server/zip";
 import { getCurrentUser } from "@/server/auth";
 import { getAccess, getProjectBySlug, type Project, type Access } from "@/server/projects";
@@ -14,7 +15,9 @@ export async function guarded(fn: () => Promise<ActionState | void>): Promise<Ac
     const digest = (e as { digest?: string })?.digest;
     if (typeof digest === "string" && digest.startsWith("NEXT_REDIRECT")) throw e;
     if (e instanceof AppError || e instanceof ArchiveError) return { error: e.message, issues: e.issues };
-    console.error(e);
+    console.error("[DEVEL line] erreur d’action :", e);
+    const db = classifyDbError(e);
+    if (db) return { error: db.message };
     return { error: "Une erreur est survenue. Réessayez dans un instant." };
   }
 }

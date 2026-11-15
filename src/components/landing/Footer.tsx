@@ -8,8 +8,8 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className="container">
-        <div className={styles.grid}>
-          <div className={styles.brand}>
+        <div className="row">
+          <div className={`col-12 col-lg-5 ${styles.brand}`}>
             <Logo />
             <p>Shippez ensemble, gardez le contrôle, sortez avec des preuves.</p>
             <div className={styles.socials}>
@@ -21,19 +21,19 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className={styles.col}>
+          <div className={`col-6 col-lg-2 offset-lg-1 ${styles.col}`}>
             <h3>Produit</h3>
             <Link href="/#comment">Comment ça marche</Link>
             <Link href="/#ship-card">Ship Card</Link>
             <Link href={PATHS.publicProjects}>Projets publics</Link>
           </div>
-          <div className={styles.col}>
+          <div className={`col-6 col-lg-2 ${styles.col}`}>
             <h3>Ressources</h3>
             <Link href={PATHS.docs}>Documentation</Link>
             <Link href={PATHS.security}>Sécurité des archives</Link>
             <Link href={PATHS.faq}>FAQ</Link>
           </div>
-          <div className={styles.col}>
+          <div className={`col-6 col-lg-2 ${styles.col}`}>
             <h3>Contact / Légal</h3>
             {process.env.NEXT_PUBLIC_CONTACT_EMAIL ? <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}>Contact</a> : <Link href={PATHS.legal}>Contact</Link>}
             <Link href={PATHS.legal}>Mentions légales</Link>

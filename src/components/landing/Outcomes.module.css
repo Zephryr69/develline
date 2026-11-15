@@ -1,0 +1,33 @@
+.wrap {
+  position: relative;
+  padding: 0 0 clamp(24px, 4vw, 48px);
+}
+
+.bar {
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: var(--radius-lg);
+}
+
+.item p {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--text-soft);
+  max-width: 15rem;
+}
+
+.value {
+  font-size: clamp(2rem, 1.4rem + 2vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--text);
+}
+
+.value span {
+  font-size: 0.5em;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--accent-text);
+}

@@ -1,25 +1,40 @@
-.cta {
-  padding: 85px 0;
+.section {
+  padding: clamp(32px, 5vw, 64px) 0 clamp(64px, 9vw, 120px);
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(48px, 8vw, 104px) clamp(20px, 5vw, 64px);
+  border-radius: 32px;
   text-align: center;
-  background: radial-gradient(ellipse at center, var(--glow) 0%, var(--surface) 58%, var(--bg) 100%);
-  border-bottom: 1px solid var(--line);
 }
 
-.cta h2 {
-  font-size: clamp(35px, 4vw, 53px);
-  line-height: 1.1;
-  letter-spacing: -0.05em;
-  margin: 18px 0;
+.content {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
 }
 
-.cta p {
-  font-size: 14px;
+.content h2 {
+  font-size: clamp(2.1rem, 1.4rem + 3vw, 3.6rem);
+  line-height: 1.07;
+  letter-spacing: -0.04em;
+  margin: 18px 0 18px;
+}
+
+.content p {
+  margin: 0 0 34px;
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
+  line-height: 1.65;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+.content small {
+  display: block;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--muted);
-  margin: 0 0 27px;
-}
-
-@media (max-width: 760px) {
-  .cta {
-    padding: 65px 0;
-  }
 }

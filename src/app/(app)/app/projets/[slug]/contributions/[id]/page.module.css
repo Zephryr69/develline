@@ -1,5 +1,5 @@
 .back {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0 0 14px;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .status {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   width: 78px;
   flex-shrink: 0;
@@ -71,7 +71,7 @@
 }
 
 .path {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-soft);
   word-break: break-all;
 }

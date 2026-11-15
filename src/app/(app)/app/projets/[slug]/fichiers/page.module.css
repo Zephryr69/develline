@@ -17,7 +17,7 @@
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 7px 11px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--muted);
   transition: border-color 0.2s, color 0.2s;
@@ -37,7 +37,7 @@
 .file {
   flex: 1;
   min-width: 0;
-  font-size: 12px;
+  font-size: 14px;
   word-break: break-all;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .size {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   white-space: nowrap;
 }

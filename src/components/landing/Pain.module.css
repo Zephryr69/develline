@@ -1,0 +1,66 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px;
+  border-radius: var(--radius-lg);
+}
+
+.card h3 {
+  font-size: 1.35rem;
+  margin: 26px 0 10px;
+}
+
+.pain {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.fix {
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.fix::before {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-bottom: 20px;
+  background: var(--line);
+}
+
+.fixLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.fixLabel svg {
+  width: 15px;
+  height: 15px;
+}
+
+.fix p {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.fix p svg {
+  margin-top: 5px;
+  width: 17px;
+  height: 17px;
+  color: var(--accent-text);
+}

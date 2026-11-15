@@ -16,12 +16,12 @@
 }
 
 .drop strong {
-  font-size: 13px;
+  font-size: 15px;
   word-break: break-all;
 }
 
 .drop span {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 
@@ -32,7 +32,7 @@
   color: var(--text);
   border-radius: 6px;
   padding: 8px 13px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 

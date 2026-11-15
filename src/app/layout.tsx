@@ -11,8 +11,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "DEVEL line — Livrez vos projets, ensemble", template: "%s · DEVEL line" },
-  description: "DEVEL line : shippez ensemble, gardez le contrôle et sortez avec des preuves. La plateforme de collaboration contrôlée pour les développeurs africains.",
+  title: { default: "DEVEL line — Livrez un vrai projet en équipe et prouvez-le", template: "%s · DEVEL line" },
+  description: "Terminez un vrai projet en 4 à 6 semaines, sans apprendre Git, et repartez avec un lien public à mettre sur votre CV. La plateforme de collaboration contrôlée pour les développeurs africains.",
   openGraph: { title: "DEVEL line", description: "Shippez ensemble, gardez le contrôle, sortez avec des preuves.", type: "website", locale: "fr_FR" },
 };
 

@@ -15,22 +15,23 @@
 
 .pageHead p {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 15px;
   margin: 0;
   line-height: 1.6;
 }
 
 .crumb {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-bottom: 9px;
 }
 
 .panel {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: var(--radius);
   background: var(--surface);
-  padding: 22px;
+  padding: 26px;
+  box-shadow: 10px 10px 24px var(--neu-dark), -8px -8px 20px var(--neu-light);
 }
 
 .panel h2,
@@ -41,7 +42,7 @@
 }
 
 .panel p {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.65;
   color: var(--muted);
 }
@@ -72,7 +73,7 @@
 }
 
 .miniLabel {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.09em;
   color: var(--muted);
@@ -103,7 +104,7 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin: 10px 0;
 }
@@ -114,7 +115,7 @@
   gap: 5px;
   padding: 5px 8px;
   border-radius: 4px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   background: var(--ok-bg);
   color: var(--ok-fg);
@@ -153,12 +154,12 @@
 }
 
 .field label {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .field small {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   line-height: 1.5;
 }
@@ -167,12 +168,20 @@
 .field textarea,
 .field select {
   width: 100%;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   background: var(--input-bg);
   color: var(--text);
-  border-radius: 6px;
-  padding: 11px 12px;
-  font-size: 13px;
+  border-radius: 12px;
+  padding: 13px 14px;
+  font-size: 15px;
+  /* neumorphisme : champ en creux */
+  box-shadow: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light);
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: var(--accent-text);
 }
 
 .field textarea {
@@ -200,7 +209,7 @@
   border: 1px solid var(--accent-line);
   color: var(--ok-fg);
   border-radius: 7px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
   margin-bottom: 18px;
 }
@@ -245,12 +254,12 @@
 }
 
 .rowTitle {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
 }
 
 .rowSub {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 4px;
   line-height: 1.5;
@@ -264,7 +273,7 @@
   place-items: center;
   background: #1f3a8f;
   color: #ffffff;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -300,7 +309,7 @@
 .tag {
   border: 1px solid var(--line-strong);
   color: var(--text-soft);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   padding: 5px 8px;
   border-radius: 4px;
@@ -323,19 +332,19 @@
 }
 
 .empty p {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.65;
   color: var(--muted);
 }
 
 .p {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.65;
   color: var(--muted);
 }
 
 .small {
-  font-size: 11px;
+  font-size: 13px;
 }
 
 @media (max-width: 760px) {
@@ -377,7 +386,7 @@
 .noticeList {
   margin: 8px 0 0;
   padding-left: 18px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .noticeList li {

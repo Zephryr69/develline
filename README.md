@@ -13,6 +13,13 @@ Plateforme de **shipping collaboratif contrôlé** pour les développeurs africa
 - Livraison → **Ship Card** publique et partageable (WhatsApp, LinkedIn), projets publics, recherche
 - Permissions vérifiées côté serveur sur chaque page, action et route API ; journal d'activité
 
+## Design
+- **Fond** : graphite moucheté (textures PNG dans `public/textures/`), **ondes d'eau** animées derrière le héros (`components/landing/Ripples.tsx`, désactivées si l'utilisateur demande « réduire les animations »)
+- **Verre** (glassmorphism) : navigation, cartes flottantes, cartes « pour qui » · **Neumorphisme** : panneaux, champs, boutons secondaires · **Argile** (claymorphism) : bouton principal, pastilles d'icônes
+- **Grille 12 colonnes** (conteneur 1 200 px, gouttière 24 px, points de rupture 576 / 768 / 992 / 1 200 px) : classes `.row`, `.col-N`, `.col-sm|md|lg|xl-N`, `.offset-*` dans `globals.css`
+- **Typographie** : Outfit en graisse 450 (corps) à 800 (titres), corps 17 px, aucun texte courant sous 13 px
+- Tous les jetons de couleur, d'ombre et de verre sont dans `src/app/globals.css` (thèmes sombre et clair)
+
 ## Stack
 Next.js 16 (App Router, TypeScript) · CSS Modules · react-icons · framer-motion · PostgreSQL (`pg`) · JSZip · jsdiff · bcryptjs · police Outfit.
 

@@ -1,47 +1,43 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
 .card {
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  background: var(--surface);
-  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px;
+  border-radius: var(--radius-lg);
 }
 
 .highlight {
   border-color: var(--accent-line);
-  background: var(--accent-soft);
+  box-shadow: var(--glass-shadow), 0 0 0 1px var(--accent-line);
 }
 
-.label {
-  font-size: 11px;
-  letter-spacing: 0.09em;
-  font-weight: 700;
-  color: var(--text-soft);
-  text-transform: uppercase;
+.tag {
+  align-self: flex-start;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--input-bg);
+  box-shadow: inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--muted);
 }
 
-.highlight .label {
-  color: var(--accent-text);
+.highlight .tag {
+  background: linear-gradient(155deg, var(--accent-hi), var(--accent));
+  box-shadow: 0 6px 14px var(--clay-glow), inset 0 2px 3px var(--clay-hi);
+  color: var(--on-accent);
 }
 
 .card h3 {
-  font-size: 19px;
-  margin: 20px 0 10px;
+  font-size: 1.45rem;
+  margin: 24px 0 12px;
 }
 
 .card p {
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--muted);
   margin: 0;
-}
-
-@media (max-width: 760px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+  font-size: 1.02rem;
+  line-height: 1.65;
+  font-weight: 500;
+  color: var(--text-soft);
 }

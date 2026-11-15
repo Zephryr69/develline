@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { AppError } from "./errors";
 import { ArchiveError, LIMITS } from "./zip";
+import { classifyDbError } from "./db-errors";
 
 export function jsonError(e: unknown) {
   if (e instanceof ArchiveError) return NextResponse.json({ ok: false, error: e.message, issues: e.issues }, { status: 422 });
@@ -8,8 +9,9 @@ export function jsonError(e: unknown) {
     const status = e.code === "forbidden" ? 403 : e.code === "not_found" ? 404 : e.code === "conflict" ? 409 : 400;
     return NextResponse.json({ ok: false, error: e.message, issues: e.issues }, { status });
   }
-  console.error(e);
-  return NextResponse.json({ ok: false, error: "Une erreur est survenue. Réessayez." }, { status: 500 });
+  console.error("[DEVEL line] erreur API :", e);
+  const db = classifyDbError(e);
+  return NextResponse.json({ ok: false, error: db?.message ?? "Une erreur est survenue. Réessayez." }, { status: 500 });
 }
 
 export const unauthorized = () => NextResponse.json({ ok: false, error: "Session expirée : reconnectez-vous." }, { status: 401 });

@@ -1,0 +1,34 @@
+.ripples {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.ring,
+.core {
+  position: absolute;
+  width: min(135%, 720px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.ring {
+  border: 1.5px solid var(--ripple-line);
+  background: radial-gradient(circle, transparent 58%, var(--ripple-fill) 100%);
+  box-shadow: inset 0 0 50px var(--ripple-fill);
+  will-change: transform, opacity;
+}
+
+.gold {
+  border-color: var(--ripple-gold);
+}
+
+/* Reflet central : donne l'impression d'une surface d'eau éclairée */
+.core {
+  width: min(70%, 380px);
+  background: radial-gradient(circle at 35% 30%, var(--blob-b), transparent 60%), radial-gradient(circle, var(--blob-a), transparent 70%);
+  filter: blur(26px);
+}

@@ -21,7 +21,7 @@ def check(c,l):
 pub,priv=S['pub'],S['priv']
 T=lambda b: b.decode('utf8')
 print('— Pages publiques')
-for p,txt in [('/','Les bonnes idées'),('/projets','Marché Local'),(f'/projets/{pub}','Marché Local'),('/connexion','Content de vous revoir'),('/inscription','Créer votre compte'),('/ressources/securite','Aucune exécution'),('/ressources/faq','Git')]:
+for p,txt in [('/','Terminez enfin un vrai projet'),('/projets','Marché Local'),(f'/projets/{pub}','Marché Local'),('/connexion','Content de vous revoir'),('/inscription','Créer votre compte'),('/ressources/securite','Aucune exécution'),('/ressources/faq','Git')]:
     s,b,_=get(p); check(s==200 and txt in T(b),f'{p} → {s} contient « {txt} »')
 s,b,_=get('/projets?q=marche'); check('Marché Local' in T(b),'recherche sans accent : « marche » trouve « Marché Local »')
 s,b,_=get('/projets?q=zzzz'); check('Aucun projet trouvé' in T(b),'recherche sans résultat')
@@ -32,6 +32,11 @@ html=T(get('/')[1])
 check('dataset.theme' in html and 'dl-theme' in html,'script de thème clair/sombre présent avant le rendu')
 check('prototype' not in html.lower() and 'wireframe' not in html.lower(),'aucune mention « prototype » / « wireframe » sur la landing')
 
+land=T(get('/')[1])
+for t in ['Lancer mon projet','Voir un exemple livré','Pourquoi vos projets restent à moitié finis','De l’idée au lien partageable en 4 étapes','Les réponses avant que vous ne les posiez','Dans 6 semaines, votre projet peut être en ligne']:
+    check(t in land,f'accueil : « {t} »')
+for tex in ['/textures/speckle-dark.png','/textures/speckle-light.png']:
+    s_,b_,h_=get(tex); check(s_==200 and h_.get('content-type','').startswith('image/png'),f'texture {tex} servie')
 print('— Protection des pages connectées')
 s,b,h=get('/app'); check(s in (307,308) and '/connexion' in h.get('location',''),f'/app sans session → redirection vers la connexion ({s})')
 s,b,h=get(f'/app/projets/{pub}'); check(s in (307,308),'projet sans session → redirection')

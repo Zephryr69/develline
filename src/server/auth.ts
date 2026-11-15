@@ -8,7 +8,15 @@ export const SESSION_COOKIE = "dl_session";
 /** Utilisateur connecté (ou null). Mis en cache pour la durée d'une requête. */
 export const getCurrentUser = cache(async (): Promise<User | null> => {
   const jar = await cookies();
-  return getUserByToken(jar.get(SESSION_COOKIE)?.value);
+  const token = jar.get(SESSION_COOKIE)?.value;
+  if (!token) return null;
+  try {
+    return await getUserByToken(token);
+  } catch (e) {
+    // Base indisponible : les pages publiques (accueil…) doivent rester affichables.
+    console.error("[DEVEL line] session illisible :", e);
+    return null;
+  }
 });
 
 /** Exige une session : redirige vers la page de connexion sinon. */

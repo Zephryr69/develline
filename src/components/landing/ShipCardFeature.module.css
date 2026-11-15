@@ -1,193 +1,133 @@
 .section {
-  background: var(--surface);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 85px;
-  align-items: center;
-}
-
-.copy p {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.75;
-  max-width: 465px;
+  background: linear-gradient(180deg, transparent, var(--bg-alt) 18%, var(--bg-alt) 82%, transparent);
 }
 
 .list {
   list-style: none;
   padding: 0;
-  margin: 25px 0;
+  margin: 28px 0 34px;
   display: grid;
   gap: 14px;
 }
 
 .list li {
-  font-size: 13px;
   display: flex;
-  gap: 10px;
-  align-items: center;
-  color: var(--text);
+  gap: 12px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-weight: 600;
 }
 
 .list svg {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
   color: var(--accent-text);
-  width: 16px;
-  height: 16px;
 }
 
 .panel {
-  padding: 27px;
-  border: 1px solid var(--line);
-  background: var(--surface-2);
-  border-radius: 12px;
+  padding: clamp(16px, 2.4vw, 30px);
+  border-radius: 32px;
 }
 
 .card {
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
 .top {
-  padding: 15px 22px;
-  border-bottom: 1px solid var(--line);
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  color: var(--text-soft);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--muted);
 }
 
-.verified {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--accent-text);
-  display: flex;
+.status {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--ok-bg);
+  color: var(--ok-fg);
+  font-size: 0.75rem;
+  font-weight: 800;
 }
 
-.verified svg {
+.status svg {
   width: 15px;
   height: 15px;
 }
 
 .body {
-  padding: 25px 27px 24px;
+  padding: 28px;
 }
 
-.projectIcon {
-  width: 50px;
-  height: 50px;
-  border: 1px solid var(--accent-line);
-  background: var(--accent-soft);
-  color: var(--accent-text);
-  border-radius: 9px;
-  display: grid;
-  place-items: center;
-}
-
-.projectIcon svg {
-  width: 25px;
-  height: 25px;
-}
-
-.body h2 {
-  font-size: 26px;
+.body h3 {
+  font-size: 1.7rem;
   letter-spacing: -0.04em;
-  margin: 17px 0 6px;
+  margin: 20px 0 8px;
 }
 
 .body p {
-  color: var(--text-soft);
-  font-size: 13px;
-  line-height: 1.6;
   margin: 0;
-  max-width: 380px;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--text-soft);
 }
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  margin-top: 23px;
-  padding: 17px 0;
+  gap: 12px;
+  margin: 24px 0 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
 }
 
-.stats > div + div {
-  border-left: 1px solid var(--line);
-  padding-left: 18px;
-}
-
-.statLabel {
-  font-size: 10px;
+.stats dt {
+  font-size: 0.75rem;
+  font-weight: 600;
   color: var(--muted);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.statValue {
-  font-size: 15px;
-  font-weight: 700;
+.stats dd {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
 }
 
 .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 19px;
-}
-
-.rowText {
-  font-size: 11px;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  font-size: 0.875rem;
+  font-weight: 600;
   color: var(--text-soft);
 }
 
-.link {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--accent-text);
-  display: flex;
-  gap: 5px;
+.row a {
+  display: inline-flex;
   align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  color: var(--accent-text);
 }
 
-.link:hover {
+.row a:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 1000px) {
-  .grid {
-    gap: 35px;
-  }
-}
-
-@media (max-width: 760px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .panel {
-    padding: 14px;
-  }
-}
-
-@media (max-width: 400px) {
-  .stats > div + div {
-    padding-left: 10px;
-  }
-
-  .statValue {
-    font-size: 13px;
-  }
 }

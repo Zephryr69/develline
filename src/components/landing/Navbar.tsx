@@ -11,8 +11,9 @@ import styles from "./Navbar.module.css";
 
 const LINKS = [
   { href: "/#comment", label: "COMMENT ÇA MARCHE", id: "comment" },
+  { href: "/#pour-qui", label: "POUR QUI", id: "pour-qui" },
   { href: "/#ship-card", label: "SHIP CARD", id: "ship-card" },
-  { href: "/#difference", label: "POURQUOI DEVEL LINE", id: "difference" },
+  { href: "/#faq", label: "FAQ", id: "faq" },
   { href: PATHS.publicProjects, label: "PROJETS PUBLICS", id: "" },
 ];
 
@@ -56,7 +57,7 @@ export default function Navbar({ userName }: { userName: string | null }) {
                 Connexion
               </Button>
               <Button variant="primary" size="sm" href={PATHS.newProject}>
-                Créer un projet <LuArrowUpRight />
+                Lancer mon projet <LuArrowUpRight />
               </Button>
             </>
           )}
@@ -96,7 +97,7 @@ export default function Navbar({ userName }: { userName: string | null }) {
                   Connexion
                 </Button>
                 <Button variant="primary" href={PATHS.newProject}>
-                  Créer un projet
+                  Lancer mon projet
                 </Button>
               </>
             )}
