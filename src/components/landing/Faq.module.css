@@ -35,7 +35,7 @@
 .chev {
   width: 22px;
   height: 22px;
-  color: var(--accent-text);
+  color: var(--icon);
   transition: transform 0.25s ease;
 }
 

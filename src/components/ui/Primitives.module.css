@@ -173,7 +173,8 @@
   color: var(--text);
   border-radius: 12px;
   padding: 13px 14px;
-  font-size: 15px;
+  min-height: 48px;
+  font-size: 16px;
   /* neumorphisme : champ en creux */
   box-shadow: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light);
 }

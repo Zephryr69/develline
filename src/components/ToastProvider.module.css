@@ -1,7 +1,8 @@
 .toast {
   position: fixed;
-  bottom: 22px;
-  right: 22px;
+  bottom: calc(22px + env(safe-area-inset-bottom));
+  right: 16px;
+  left: auto;
   z-index: 200;
   background: var(--accent);
   color: var(--on-accent);

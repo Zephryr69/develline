@@ -1,5 +1,5 @@
 .section {
-  background: linear-gradient(180deg, transparent, var(--bg-alt) 18%, var(--bg-alt) 82%, transparent);
+  overflow: hidden;
 }
 
 .list {
@@ -22,15 +22,16 @@
   margin-top: 4px;
   width: 18px;
   height: 18px;
-  color: var(--accent-text);
+  color: var(--icon);
 }
 
 .panel {
-  padding: clamp(16px, 2.4vw, 30px);
-  border-radius: 32px;
+  position: relative;
+  padding: clamp(8px, 2vw, 28px) 0;
 }
 
 .card {
+  position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
 }

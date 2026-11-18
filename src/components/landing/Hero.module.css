@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(40px, 7vw, 96px) 0 clamp(56px, 8vw, 110px);
+  padding: 32px 0 56px;
 }
 
 .hero::before {
@@ -21,37 +21,32 @@
 .kicker {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   padding: 10px 18px;
   border-radius: 999px;
   font-size: 0.875rem;
   font-weight: 700;
+  line-height: 1.3;
   color: var(--text-soft);
 }
 
-.kicker svg {
-  width: 17px;
-  height: 17px;
-  color: var(--accent-text);
-}
-
+/* Titre court (≈ 55 caractères), lisible d'un coup d'œil */
 .title {
-  font-size: clamp(2.4rem, 1.5rem + 3.6vw, 4.4rem);
-  line-height: 1.04;
+  font-size: clamp(2.2rem, 1.2rem + 4.4vw, 4.2rem);
+  line-height: 1.05;
   letter-spacing: -0.04em;
-  margin: 26px 0 22px;
+  margin: 22px 0 20px;
 }
 
 .title em {
+  display: block;
   font-style: normal;
   color: var(--highlight);
-  display: inline;
 }
 
 .lead {
   max-width: 34rem;
-  font-size: clamp(1.1rem, 1.05rem + 0.35vw, 1.3rem);
-  line-height: 1.65;
+  font-size: clamp(1.08rem, 1.02rem + 0.35vw, 1.28rem);
+  line-height: 1.6;
   font-weight: 500;
   color: var(--text-soft);
   margin: 0;
@@ -59,246 +54,133 @@
 
 .actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 36px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.actions > a:first-child {
+  width: 100%;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-text);
+}
+
+.link svg {
+  width: 17px;
+  height: 17px;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 }
 
 .proof {
   list-style: none;
   padding: 0;
-  margin: 32px 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 24px;
+  margin: 22px 0 0;
+  display: grid;
+  gap: 4px 24px;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-soft);
 }
 
 .proof li {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
+  min-height: 32px;
 }
 
 .proof svg {
   width: 18px;
   height: 18px;
-  color: var(--accent-text);
-}
-
-.stageCol {
-  margin-top: 24px;
+  color: var(--icon);
 }
 
 .stage {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 560px;
-  padding: 20px 0;
+  margin: 28px auto 0;
+  max-width: 560px;
+  padding: 12px 0;
 }
 
-.card {
+.visual {
   position: relative;
-  width: min(100%, 440px);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  width: 100%;
 }
 
-.cardTop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-  border-bottom: 1px solid var(--glass-border);
-}
-
-.label {
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-}
-
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--ok-bg);
-  color: var(--ok-fg);
-  font-size: 0.75rem;
-  font-weight: 800;
-}
-
-.status svg {
-  width: 15px;
-  height: 15px;
-}
-
-.cardBody {
-  padding: 26px 26px 24px;
-}
-
-.cardBody h2 {
-  font-size: 1.7rem;
-  letter-spacing: -0.04em;
-  margin: 18px 0 8px;
-}
-
-.cardBody p {
-  margin: 0;
-  font-size: 0.975rem;
-  line-height: 1.6;
-  font-weight: 500;
-  color: var(--text-soft);
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
-}
-
-.tags span {
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--input-bg);
-  box-shadow: inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 24px 0 0;
-  padding: 18px 0;
-  border-top: 1px solid var(--glass-border);
-  border-bottom: 1px solid var(--glass-border);
-}
-
-.stats dt {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted);
-  margin-bottom: 4px;
-}
-
-.stats dd {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-
-.people {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 18px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-soft);
-}
-
-.avatars {
-  display: flex;
-}
-
-.avatars i {
-  width: 34px;
-  height: 34px;
-  margin-left: -8px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  font-style: normal;
-  font-size: 0.75rem;
-  font-weight: 800;
-  background: #1f3a8f;
-  color: #ffffff;
-  border: 2px solid var(--surface);
-}
-
-.avatars i:first-child {
-  margin-left: 0;
-}
-
-.avatars i:nth-child(2) {
-  background: #c8960c;
-  color: #0d2660;
-}
-
-.avatars i:nth-child(3) {
-  background: #3556b8;
-}
-
-.chip {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 18px 12px 12px;
-  border-radius: 18px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.chip small {
+.visual svg {
   display: block;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--muted);
+  width: 100%;
+  height: auto;
 }
 
-.chipA {
-  left: -4%;
-  top: 16%;
+/* Tablette : actions côte à côte, visuel centré */
+@media (min-width: 576px) {
+  .hero {
+    padding: 48px 0 72px;
+  }
+
+  .actions {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .actions > a:first-child {
+    width: auto;
+  }
+
+  .proof {
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 6px 28px;
+  }
 }
 
-.chipB {
-  right: -2%;
-  bottom: 12%;
-}
-
-@media (max-width: 991px) {
+@media (min-width: 768px) {
   .stage {
-    min-height: 500px;
-  }
-
-  .chipA {
-    left: 0;
-  }
-
-  .chipB {
-    right: 0;
+    margin-top: 40px;
   }
 }
 
-@media (max-width: 575px) {
+/* Ordinateur : texte à gauche, image à droite (50 / 50) */
+@media (min-width: 992px) {
+  .hero {
+    padding: 72px 0 104px;
+  }
+
   .stage {
-    min-height: 0;
-    padding-bottom: 70px;
+    margin: 0;
+    max-width: none;
   }
 
-  .chipA {
-    top: auto;
-    bottom: 0;
-    left: 0;
+  .proof {
+    grid-auto-flow: row;
+    gap: 4px 24px;
   }
+}
 
-  .chipB {
-    display: none;
-  }
-
-  .actions > * {
-    width: 100%;
+@media (min-width: 1200px) {
+  .proof {
+    grid-auto-flow: column;
   }
 }

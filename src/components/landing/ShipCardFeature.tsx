@@ -1,6 +1,7 @@
 import { LuArrowUpRight, LuBadgeCheck, LuBox, LuCheck, LuExternalLink } from "react-icons/lu";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
+import Ripples from "./Ripples";
 import { PATHS } from "@/lib/routes";
 import styles from "./ShipCardFeature.module.css";
 
@@ -9,7 +10,7 @@ export default function ShipCardFeature() {
     <section className={`section ${styles.section}`} id="ship-card">
       <div className="container">
         <div className="row items-center">
-          <Reveal className="col-12 col-lg-5">
+          <Reveal className="col-12 col-lg-5 order-lg-1">
             <span className="eyebrow">Votre preuve</span>
             <h2 className="section-title">Ce qu’un recruteur comprend en 5 secondes</h2>
             <p className="section-lead">Pas un CV de plus : une page publique qui montre ce que vous avez réellement construit.</p>
@@ -24,8 +25,9 @@ export default function ShipCardFeature() {
             </Button>
           </Reveal>
 
-          <Reveal delay={0.12} className="col-12 col-lg-6 offset-lg-1">
-            <div className={`neu ${styles.panel}`}>
+          <Reveal delay={0.12} className="col-12 col-lg-6 offset-lg-1 order-lg-2">
+            <div className={styles.panel}>
+              <Ripples rings={3} gold={false} />
               <article className={`glass ${styles.card}`} aria-label="Exemple de Ship Card">
                 <header className={styles.top}>
                   <span className={styles.label}>EXEMPLE / MARCHÉ LOCAL</span>

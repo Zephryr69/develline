@@ -18,6 +18,7 @@ Plateforme de **shipping collaboratif contrôlé** pour les développeurs africa
 - **Verre** (glassmorphism) : navigation, cartes flottantes, cartes « pour qui » · **Neumorphisme** : panneaux, champs, boutons secondaires · **Argile** (claymorphism) : bouton principal, pastilles d'icônes
 - **Grille 12 colonnes** (conteneur 1 200 px, gouttière 24 px, points de rupture 576 / 768 / 992 / 1 200 px) : classes `.row`, `.col-N`, `.col-sm|md|lg|xl-N`, `.offset-*` dans `globals.css`
 - **Typographie** : Outfit en graisse 450 (corps) à 800 (titres), corps 17 px, aucun texte courant sous 13 px
+- **Responsive** (mobile d'abord) : cibles tactiles ≥ 44 px (boutons 48 px, champs 48 px à 16 px de texte), 8 px d'écart minimum, marges 16 px (mobile) / 24 px (tablette et plus), navigation en trois temps (menu plein sur mobile, bouton de thème toujours visible dans la barre, barre complète dès 992 px), cartes en 1 colonne (mobile), 2 colonnes (tablette), 3 colonnes (ordinateur), survols réservés aux appareils à souris, zones sûres des téléphones
 - Tous les jetons de couleur, d'ombre et de verre sont dans `src/app/globals.css` (thèmes sombre et clair)
 
 ## Stack

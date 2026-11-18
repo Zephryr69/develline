@@ -33,7 +33,7 @@ export default function Compare() {
         </Reveal>
         <div className="row items-stretch">
           {CARDS.map((c, i) => (
-            <div key={c.tag} className="col-12 col-md-4">
+            <div key={c.tag} className={`col-12 col-md-6 col-lg-4 ${i === 2 ? "col-md-12" : ""}`}>
               <Reveal delay={i * 0.1} className={`${c.highlight ? `glass ${styles.highlight}` : "neu"} ${styles.card}`}>
                 <span className={styles.tag}>{c.tag}</span>
                 <h3>{c.title}</h3>

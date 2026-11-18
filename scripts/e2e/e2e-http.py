@@ -21,7 +21,7 @@ def check(c,l):
 pub,priv=S['pub'],S['priv']
 T=lambda b: b.decode('utf8')
 print('— Pages publiques')
-for p,txt in [('/','Terminez enfin un vrai projet'),('/projets','Marché Local'),(f'/projets/{pub}','Marché Local'),('/connexion','Content de vous revoir'),('/inscription','Créer votre compte'),('/ressources/securite','Aucune exécution'),('/ressources/faq','Git')]:
+for p,txt in [('/','Livrez vos projets en équipe'),('/projets','Marché Local'),(f'/projets/{pub}','Marché Local'),('/connexion','Content de vous revoir'),('/inscription','Créer votre compte'),('/ressources/securite','Aucune exécution'),('/ressources/faq','Git')]:
     s,b,_=get(p); check(s==200 and txt in T(b),f'{p} → {s} contient « {txt} »')
 s,b,_=get('/projets?q=marche'); check('Marché Local' in T(b),'recherche sans accent : « marche » trouve « Marché Local »')
 s,b,_=get('/projets?q=zzzz'); check('Aucun projet trouvé' in T(b),'recherche sans résultat')
@@ -35,6 +35,9 @@ check('prototype' not in html.lower() and 'wireframe' not in html.lower(),'aucun
 land=T(get('/')[1])
 for t in ['Lancer mon projet','Voir un exemple livré','Pourquoi vos projets restent à moitié finis','De l’idée au lien partageable en 4 étapes','Les réponses avant que vous ne les posiez','Dans 6 semaines, votre projet peut être en ligne']:
     check(t in land,f'accueil : « {t} »')
+check('Aperçu de DEVEL line' in land and '<svg viewBox="0 0 640 560"' in land,'héros : illustration produit (SVG) présente')
+check('Prouvez-le avec un lien' in land,'héros : message principal')
+check('aria-label="Passer en mode' in land,'bascule de thème dans la barre d’en-tête')
 for tex in ['/textures/speckle-dark.png','/textures/speckle-light.png']:
     s_,b_,h_=get(tex); check(s_==200 and h_.get('content-type','').startswith('image/png'),f'texture {tex} servie')
 print('— Protection des pages connectées')

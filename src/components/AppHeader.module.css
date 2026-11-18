@@ -79,13 +79,13 @@
 
 .menuBtn {
   display: none;
-  width: 38px;
-  height: 38px;
+  width: 48px;
+  height: 48px;
   place-items: center;
   background: transparent;
   color: var(--text);
   border: 1px solid var(--line-strong);
-  border-radius: 7px;
+  border-radius: 14px;
 }
 
 .mobile {

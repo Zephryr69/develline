@@ -41,7 +41,7 @@
   margin-top: 4px;
   width: 18px;
   height: 18px;
-  color: var(--accent-text);
+  color: var(--icon);
 }
 
 .card > :last-child {

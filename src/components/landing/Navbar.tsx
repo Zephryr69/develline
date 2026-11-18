@@ -34,80 +34,108 @@ export default function Navbar({ userName }: { userName: string | null }) {
     return () => observer.disconnect();
   }, []);
 
-  return (
-    <header className={styles.header}>
-      <div className={`container ${styles.wrap}`}>
-        <Logo />
-        <nav className={styles.links} aria-label="Navigation principale">
-          {LINKS.map((l) => (
-            <a key={l.label} href={l.href} className={l.id && active === l.id ? styles.active : ""}>
-              {l.label}
-            </a>
-          ))}
-        </nav>
-        <div className={styles.actions}>
-          <ThemeToggle />
-          {userName ? (
-            <Button variant="primary" size="sm" href={PATHS.dashboard}>
-              <LuLayoutDashboard /> Mon espace
-            </Button>
-          ) : (
-            <>
-              <Button variant="outline" size="sm" href={PATHS.login}>
-                Connexion
-              </Button>
-              <Button variant="primary" size="sm" href={PATHS.newProject}>
-                Lancer mon projet <LuArrowUpRight />
-              </Button>
-            </>
-          )}
-        </div>
-        <button
-          className={styles.menuBtn}
-          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <LuX size={18} /> : <LuMenu size={18} />}
-        </button>
-      </div>
+  // Menu ouvert : on bloque le défilement de la page et Échap le referme.
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onResize = () => window.innerWidth >= 992 && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [open]);
 
-      <AnimatePresence>
-        {open && (
-          <motion.nav
-            className={styles.mobile}
-            aria-label="Navigation mobile"
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.2 }}
-          >
+  const close = () => setOpen(false);
+
+  return (
+    <>
+      <header className={styles.header}>
+        <div className={`container ${styles.wrap}`}>
+          <Logo />
+          <nav className={styles.links} aria-label="Navigation principale">
             {LINKS.map((l) => (
-              <a key={l.label} href={l.href} onClick={() => setOpen(false)}>
+              <a key={l.label} href={l.href} className={l.id && active === l.id ? styles.active : ""}>
                 {l.label}
               </a>
             ))}
-            {userName ? (
-              <Button variant="primary" href={PATHS.dashboard}>
-                Mon espace
-              </Button>
-            ) : (
-              <>
-                <Button variant="outline" href={PATHS.login}>
-                  Connexion
+          </nav>
+
+          <div className={styles.right}>
+            {/* Le thème reste toujours visible dans la barre, jamais caché dans le menu. */}
+            <ThemeToggle />
+            <div className={styles.desktopActions}>
+              {userName ? (
+                <Button variant="primary" size="sm" href={PATHS.dashboard}>
+                  <LuLayoutDashboard /> Mon espace
                 </Button>
-                <Button variant="primary" href={PATHS.newProject}>
-                  Lancer mon projet
-                </Button>
-              </>
-            )}
-            <div className={styles.mobileTheme}>
-              <span>Thème</span>
-              <ThemeToggle />
+              ) : (
+                <>
+                  <Button variant="outline" size="sm" href={PATHS.login}>
+                    Connexion
+                  </Button>
+                  <Button variant="primary" size="sm" href={PATHS.newProject}>
+                    Lancer mon projet <LuArrowUpRight />
+                  </Button>
+                </>
+              )}
             </div>
-          </motion.nav>
+            <button
+              className={styles.menuBtn}
+              aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={open}
+              aria-controls="menu-mobile"
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? <LuX size={22} /> : <LuMenu size={22} />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Menu mobile : opaque, avec un fond assombri derrière (placé hors du <header> pour ne pas hériter de son flou). */}
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.div className={styles.overlay} onClick={close} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.18 }} aria-hidden="true" />
+            <motion.nav
+              id="menu-mobile"
+              className={styles.mobile}
+              aria-label="Navigation mobile"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+            >
+              {LINKS.map((l) => (
+                <a key={l.label} href={l.href} onClick={close} className={styles.mobileLink}>
+                  {l.label}
+                </a>
+              ))}
+              <div className={styles.mobileActions}>
+                {userName ? (
+                  <Button variant="primary" size="lg" full href={PATHS.dashboard}>
+                    <LuLayoutDashboard /> Mon espace
+                  </Button>
+                ) : (
+                  <>
+                    <Button variant="primary" size="lg" full href={PATHS.newProject}>
+                      Lancer mon projet <LuArrowUpRight />
+                    </Button>
+                    <Button variant="outline" size="lg" full href={PATHS.login}>
+                      Connexion
+                    </Button>
+                  </>
+                )}
+              </div>
+            </motion.nav>
+          </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

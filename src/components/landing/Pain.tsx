@@ -38,7 +38,7 @@ export default function Pain() {
 
         <div className="row items-stretch">
           {CARDS.map(({ icon: Icon, title, pain, fix, gold }, i) => (
-            <div key={title} className="col-12 col-md-4">
+            <div key={title} className={`col-12 col-md-6 col-lg-4 ${i === 2 ? "col-md-12" : ""}`}>
               <Reveal delay={i * 0.1} className={`neu ${styles.card}`}>
                 <span className={`clay-tile ${gold ? "gold" : ""}`}>
                   <Icon />
